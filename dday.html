@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="balloon white">
+                <div class="star-red"></div>
+                <div class="face">
+                    <div class="eye"></div>
+					<div class="eye2"></div>
+                    <div class="mouth happy"></div>
+                </div>
+                <div class="triangle"></div>
+                <div class="string"></div>
+            </div>
+
+            <div class="balloon red">
+                <div class="star"></div>
+                <div class="face">
+                    <div class="eye"></div>
+					<div class="eye2"></div>
+                    <div class="mouth happy"></div>
+                </div>
+                <div class="triangle"></div>
+                <div class="string"></div>
+            </div>
+
+            <div class="balloon blue">
+                <div class="star"></div>
+                <div class="face">
+                    <div class="eye"></div>
+					<div class="eye2"></div>
+                    <div class="mouth happy"></div>
+                </div>
+                <div class="triangle"></div>
+                <div class="string"></div>
+            </div>
+            <div id="timer"></div>
+            <h1>강혜원 30살</h1>
+        </div>
+        <footer>
+            <p>made by <a href=""> mylee</a></p>
+        </footer>
+    </body>
+    <script>
+const year = new Date().getFullYear();
+const fourthOfJuly = new Date().getTime();
+const fourthOfJulyNextYear = new Date("2026", "01", "01").getTime();
+const month = new Date().getMonth();
+
+// countdown
+let timer = setInterval(function () {
+    // get today's date
+    const today = new Date().getTime();
+
+    // get the difference
+    let diff;
+	diff = fourthOfJulyNextYear - today;
+    // math
+    let days = Math.floor(diff / (1000 * 60 * 60 * 24)) - 30;
+    let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    // display
+    document.getElementById('timer').innerHTML =
+        '<div class="days"> \
+  <div class="numbers">' +
+        days +
+        '</div>days</div> \
+<div class="hours"> \
+  <div class="numbers">' +
+        hours +
+        '</div>hours</div> \
+<div class="minutes"> \
+  <div class="numbers">' +
+        minutes +
+        '</div>minutes</div> \
+<div class="seconds"> \
+  <div class="numbers">' +
+        seconds +
+        '</div>seconds</div> \
+</div>';
+}, 1000);
+    </script>
+</html>
